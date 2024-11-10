@@ -38,27 +38,11 @@ spec:
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
+        envFrom:
+          - configMapRef:
+              name: synergychat-web-configmap
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 10
-  conditions:
-  - lastTransitionTime: "2024-09-21T04:04:45Z"
-    lastUpdateTime: "2024-09-21T04:05:02Z"
-    message: ReplicaSet "synergychat-web-fbdb8d849" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  - lastTransitionTime: "2024-09-26T15:35:46Z"
-    lastUpdateTime: "2024-09-26T15:35:46Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  observedGeneration: 4
-  readyReplicas: 10
-  replicas: 10
-  updatedReplicas: 10
